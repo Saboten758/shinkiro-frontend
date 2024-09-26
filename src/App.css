@@ -1,21 +1,21 @@
 :root {
-  --primary-color: #6d28d9;
-  --secondary-color: #8b5cf6;
-  --accent-color: #35b95b;
-  --background-color: #f3f4f6;
-  --text-color: #11151a;
-  --card-background: #ffffff;
-  --input-background: #e5e7eb;
+  --primary-color: #e44242; /* Soft pink */
+  --secondary-color: #dca392; /* Bright yellow */
+  --accent-color: #4caf50; /* Teal */
+  --background-color: #ffffff; /* Bright white */
+  --text-color: #282a36; /* Dark gray */
+  --card-background: #d9d7e2; /* Light pink */
+  --input-background: #b8b1ad; /* Soft yellow */
 
   /* Additional card colors */
-  --background-card-color-1: #cfe1ff;
-  --background-card-color-2: #ffd5cf;
-  --foreground-card-color-1: #e2ffe1;
-  --foreground-card-color-2: #f3ffe1;
+  --background-card-color-1: #ffcccc; /* Light red */
+  --background-card-color-2: #ffe6b2; /* Light yellow */
+  --foreground-card-color-1: #b3e5fc; /* Light blue */
+  --foreground-card-color-2: #b2ffc9; /* Very light yellow */
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Comic Sans MS', cursive; /* Nostalgic font */
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
@@ -24,19 +24,20 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url('https://www.transparenttextures.com/patterns/pw-maze.png'); /* Light texture */
 }
 
 .container {
-  flex: 1; /* This allows the container to stretch to fill the remaining vertical space */
+  flex: 1;
   max-width: 100%;
   margin: 20px auto;
   padding: 40px;
   background-color: var(--card-background);
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Adds space between items inside the container */
+  gap: 20px;
 }
 
 .header {
@@ -49,6 +50,14 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--primary-color);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.markdown-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  width: 100%;
 }
 
 input, textarea {
@@ -59,20 +68,26 @@ input, textarea {
   border: 2px solid var(--input-background);
   background-color: var(--input-background);
   transition: all 0.3s ease;
+  font-family: 'Comic Sans MS', cursive; /* Consistent font */
+}
+
+textarea {
+  height: 200px; /* Make the textarea larger */
+  resize: vertical; /* Allow vertical resizing */
 }
 
 input:focus, textarea:focus {
   outline: none;
   border-color: var(--secondary-color);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 0 3px rgba(244, 163, 0, 0.3); /* Soft yellow glow */
 }
 
 .markdown-list {
   list-style: none;
   padding: 0;
   margin-top: 0;
-  flex: 1; /* Makes sure the list takes up available space */
-  overflow-y: auto; /* Allows scrolling for longer lists */
+  flex: 1;
+  overflow-y: auto;
 }
 
 /* Foreground card styles */
@@ -83,7 +98,6 @@ input:focus, textarea:focus {
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeIn 0.5s ease-out;
 }
 
 /* Alternate background card style */
@@ -133,6 +147,22 @@ input:focus, textarea:focus {
   color: white;
 }
 
+.description {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 20px 0;
+  text-align: center; /* Center align the description */
+}
+
+.anime-image {
+  width: 100%;
+  max-width: 600px; /* Set a maximum width */
+  border-radius: 12px;
+  margin: 20px auto; /* Center the image */
+  display: block; /* Ensure it behaves as a block element */
+}
+
 .delete-btn {
   background-color: #ef4444;
   color: white;
@@ -156,19 +186,19 @@ input:focus, textarea:focus {
 
 /* Dark Mode Styles */
 .dark-mode {
-  --primary-color: #07050b;
-  --secondary-color: #6d28d9;
-  --accent-color: #35b95b;
-  --background-color: #000000;
-  --text-color: #f3f4f6;
-  --card-background: #2d3c54;
-  --input-background: #4b5563;
+  --primary-color: #ff77a8; /* Light pink */
+  --secondary-color: #ffcc5c; /* Soft yellow */
+  --accent-color: #1ab3b5; /* Teal */
+  --background-color: #222831; /* Dark gray */
+  --text-color: #f8f8f2; /* Light gray */
+  --card-background: #1c1e22; /* Darker gray */
+  --input-background: #3a3e43; /* Dark input */
 
   /* Dark mode background and foreground card colors */
-  --background-card-color-1: #222831;
-  --background-card-color-2: #393e46;
-  --foreground-card-color-1: #30475e;
-  --foreground-card-color-2: #3b6978;
+  --background-card-color-1: #393e46; /* Darker */
+  --background-card-color-2: #282c34; /* Slightly lighter */
+  --foreground-card-color-1: #4a4e69; /* Brighter dark */
+  --foreground-card-color-2: #8d99ae; /* Light gray */
 }
 
 .dark-mode .toggle-dark-mode {

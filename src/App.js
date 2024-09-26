@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'; // For syntax highlighting
+import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Syntax highlighting style
 import './App.css'; // Import custom styles for dark mode and cleaner UI
+import { FaDownload, FaTrashAlt, FaMoon, FaSun } from 'react-icons/fa'; // Import icons
 
 const App = () => {
   const [markdownFiles, setMarkdownFiles] = useState([]);
@@ -55,18 +58,21 @@ const App = () => {
     const file = new Blob([markdown.content], { type: 'text/markdown' });
     element.href = URL.createObjectURL(file);
     element.download = `${markdown.title}.md`;
-    document.body.appendChild(element); // Required for this to work in FireFox
+    document.body.appendChild(element); // Required for this to work in Firefox
     element.click();
   };
 
   return (
-    <div className={`container ${darkMode ? 'dark-mode' : ''}`}>
+    <div className={`container ${darkMode ? 'dark-mode' : ''}`} style={{ backgroundImage: 'url(/path/to/anime-background.jpg)', backgroundSize: 'cover' }}>
       <div className="header">
-        <h1>Markdown Manager</h1>
+        <h1>蜃気楼(Mirrage) - The Markdown Manager</h1>
         <button className="toggle-dark-mode" onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
+          {darkMode ? <FaSun /> : <FaMoon />}
         </button>
       </div>
+      <img src="https://giffiles.alphacoders.com/220/220341.gif" alt="Anime aesthetic" className="anime-image" />
+    
+      <p className="description">Create, manage, and download your markdown files!</p>
 
       <form onSubmit={handleSubmit} className="markdown-form">
         <input
@@ -89,7 +95,31 @@ const App = () => {
         <button type="submit" className="btn save-btn">Save Markdown</button>
       </form>
 
-      <h2>Saved Markdown Files</h2>
+      <h2 className='description'>Markdown Preview</h2>
+      <div className="markdown-preview">
+        <ReactMarkdown
+          components={{
+            code({ node, inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || '');
+              return inline ? (
+                <code {...props}>{children}</code>
+              ) : (
+                <SyntaxHighlighter
+                  style={solarizedlight}
+                  language={match ? match[1] : 'text'}
+                  PreTag="div"
+                >
+                  {String(children).replace(/\n$/, '')}
+                </SyntaxHighlighter>
+              );
+            },
+          }}
+        >
+          {newMarkdown.content}
+        </ReactMarkdown>
+      </div>
+
+      <h2 className='description'>Saved Markdown Files</h2>
       <ul className="markdown-list">
         {markdownFiles.map((markdown, index) => (
           <li
@@ -100,10 +130,10 @@ const App = () => {
               <h3>{markdown.title}</h3>
               <div className="markdown-actions">
                 <button className="btn download-btn" onClick={() => handleDownload(markdown)}>
-                  Download
+                  <FaDownload /> Download
                 </button>
                 <button className="btn delete-btn" onClick={() => handleDelete(markdown._id)}>
-                  Delete
+                  <FaTrashAlt /> Delete
                 </button>
               </div>
             </div>
