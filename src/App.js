@@ -15,7 +15,7 @@ const App = () => {
   // Fetch all markdown files
   const fetchMarkdownFiles = async () => {
     try {
-      const response = await axios.get('shinkiro-backend-lzvcf1btf-saboten758s-projects.vercel.app:5000/api/markdown');
+      const response = await axios.get('https://shinkiro-backend.vercel.app/api/markdown');
       setMarkdownFiles(response.data);
     } catch (error) {
       console.error('Error fetching markdown files', error);
@@ -31,7 +31,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('shinkiro-backend-lzvcf1btf-saboten758s-projects.vercel.app:5000/api/markdown', newMarkdown);
+      await axios.post('https://shinkiro-backend.vercel.app/api/markdown', newMarkdown);
       setNewMarkdown({ title: '', content: '' });
       fetchMarkdownFiles(); // Refresh the list
     } catch (error) {
@@ -42,7 +42,7 @@ const App = () => {
   // Handle deletion of a markdown file
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`shinkiro-backend-lzvcf1btf-saboten758s-projects.vercel.app:5000/api/markdown/${id}`);
+      await axios.delete(`https://shinkiro-backend.vercel.app/api/markdown/${id}`);
       fetchMarkdownFiles(); // Refresh the list after deletion
     } catch (error) {
       console.error('Error deleting markdown', error);
