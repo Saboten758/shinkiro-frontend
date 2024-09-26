@@ -42,7 +42,6 @@ Make sure you have the following installed:
 4. Start server:
     ```bash
     npm start
-
     ```
 
 The app should now be running at http://localhost:3000.
