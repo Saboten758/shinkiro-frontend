@@ -56,15 +56,29 @@ body {
 .markdown-preview {
   margin-top: 20px;
   padding: 20px;
-  background-color: var(--foreground-card-color);
+  background-color: var(--foreground-color); /* Adjusted to a darker foreground for contrast */
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+  color: var(--text-color); /* Ensure text color is light */
   overflow: auto;
 }
 
 .markdown-preview h2, .markdown-preview h3 {
   margin: 10px 0;
+  color: var(--violet-color); /* Highlight headers with violet color for anime aesthetic */
 }
+
+.markdown-preview p, .markdown-preview code, .markdown-preview pre {
+  color: var(--text-color); /* Ensure regular text and code blocks are visible in dark mode */
+}
+
+.markdown-preview pre {
+  background-color: #2c2c54; /* Deep violet background for code blocks */
+  padding: 10px;
+  border-radius: 8px;
+  overflow: auto;
+}
+
 .markdown-form {
   display: flex;
   flex-direction: column;
