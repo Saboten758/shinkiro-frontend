@@ -37,11 +37,11 @@ Make sure you have the following installed:
    ```
 3. Install the dependencies:
     ```bash
-        npm install
+    npm install
     ```
 4. Start server:
     ```bash
-        npm start
+    npm start
 
     ```
 
