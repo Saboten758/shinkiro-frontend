@@ -1,0 +1,205 @@
+:root {
+  --primary-color: #6d28d9;
+  --secondary-color: #8b5cf6;
+  --accent-color: #35b95b;
+  --background-color: #f3f4f6;
+  --text-color: #11151a;
+  --card-background: #ffffff;
+  --input-background: #e5e7eb;
+
+  /* Additional card colors */
+  --background-card-color-1: #cfe1ff;
+  --background-card-color-2: #ffd5cf;
+  --foreground-card-color-1: #e2ffe1;
+  --foreground-card-color-2: #f3ffe1;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1; /* This allows the container to stretch to fill the remaining vertical space */
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 40px;
+  background-color: var(--card-background);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adds space between items inside the container */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 2px solid var(--input-background);
+  background-color: var(--input-background);
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+
+.markdown-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  flex: 1; /* Makes sure the list takes up available space */
+  overflow-y: auto; /* Allows scrolling for longer lists */
+}
+
+/* Foreground card styles */
+.markdown-item {
+  background-color: var(--foreground-card-color-1);
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Alternate background card style */
+.markdown-item:nth-child(even) {
+  background-color: var(--foreground-card-color-2);
+}
+
+.markdown-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.markdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.markdown-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.markdown-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.save-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.download-btn {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.toggle-dark-mode {
+  padding: 10px 16px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  --primary-color: #07050b;
+  --secondary-color: #6d28d9;
+  --accent-color: #35b95b;
+  --background-color: #000000;
+  --text-color: #f3f4f6;
+  --card-background: #2d3c54;
+  --input-background: #4b5563;
+
+  /* Dark mode background and foreground card colors */
+  --background-card-color-1: #222831;
+  --background-card-color-2: #393e46;
+  --foreground-card-color-1: #30475e;
+  --foreground-card-color-2: #3b6978;
+}
+
+.dark-mode .toggle-dark-mode {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+/* Fancy scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Animation for new items */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.markdown-item {
+  animation: fadeIn 0.5s ease-out;
+}
