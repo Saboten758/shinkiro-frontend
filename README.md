@@ -2,7 +2,7 @@
 
 ![Anime Header](https://giffiles.alphacoders.com/220/220341.gif)
 
-Welcome to **Mirrage**, a Markdown Manager designed with a sleek anime-inspired aesthetic. Mirrage allows you to create, manage, preview, and download your markdown files seamlessly, with dark mode support and beautiful syntax highlighting!
+Welcome to **Mirrage**, a Markdown Manager . Mirrage allows you to create, manage, preview, and download your markdown files seamlessly, with dark mode support and beautiful syntax highlighting!
 
 ## 🎨 Features
 
