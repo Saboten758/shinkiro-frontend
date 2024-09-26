@@ -53,6 +53,18 @@ body {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.markdown-preview {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--foreground-card-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+
+.markdown-preview h2, .markdown-preview h3 {
+  margin: 10px 0;
+}
 .markdown-form {
   display: flex;
   flex-direction: column;
