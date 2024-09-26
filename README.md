@@ -11,7 +11,7 @@ Welcome to **Mirrage**, a Markdown Manager . Mirrage allows you to create, manag
 - **Syntax Highlighting**: Experience beautiful syntax highlighting with Prism.js for code blocks.
 - **Dark Mode**: Toggle between light and dark modes to suit your preference.
 - **Download Markdown**: Download your markdown files as `.md` files for easy sharing.
-- **Anime-inspired UI**: A unique, anime-inspired design with 90s vibes and a cool, clean interface.
+
 
 ## 🚀 Getting Started
 
